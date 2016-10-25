@@ -24,6 +24,7 @@ public class VendaServlet extends HttpServlet {
 		acao = req.getParameter("acao");
 		Venda venda = new Venda();
 		Cliente cliente = new Cliente();
+		Produto produto = new Produto();
 		ClienteBO clienteBO = new ClienteBO();
 		ProdutoBO produtoBO = new ProdutoBO();
 		String msg = null;
@@ -79,12 +80,12 @@ public class VendaServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
 				}
 
-			} else if (acao.equals("BuscarProduto")) {
+			} else if (acao.equals("ListarProduto")) {
 				try {
 
 					List<Produto> Lista = produtoBO.listarTodos();
 					req.setAttribute("Lista", Lista);
-					req.getRequestDispatcher("jsp/produto/listaProdutos.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/venda/listaProdutos.jsp").forward(req, resp);
 
 				} catch (ClassNotFoundException e) {
 
@@ -100,6 +101,31 @@ public class VendaServlet extends HttpServlet {
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
 
+				}
+			}else if(acao.equals("EscolherProduto")){
+				try {
+					produto = produtoBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
+					venda = (Venda) session.getAttribute("venda");
+					venda.setProduto(produto);
+					session.setAttribute("venda", venda);
+					msg = "Produto"+produto.getNome()+" foi adicionado ao carinho com sucesso!";
+					
+				} catch (NumberFormatException e) {
+					msg="Vish, numero em um formato errado.\n "+e;
+					e.printStackTrace();
+					
+				} catch (ClassNotFoundException e) {
+					msg = "Chame o suporte e peça para que Verifique o driver de coneção com o Mysql!\n" + e;
+					e.printStackTrace();
+					
+				} catch (SQLException e) {
+				  msg="erro ao adicionar o produto ao carinho.\n"+e;
+					e.printStackTrace();
+				}catch(Exception e){
+					msg = "temos um problemão.\n"+e;
+				}finally {
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
 				}
 			}
 

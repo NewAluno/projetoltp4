@@ -13,31 +13,25 @@
     <c:if test="${user==null && senha==null}">
     	<c:redirect url="../../../Mercado/index.jsp"/>
     </c:if>
-    
+     <c:set var="car" value="${venda.carinho}"/>
 <center>
 <c:choose>
 	<c:when test="${venda.cliente eq null}">
-    <input type="button" onclick="location='/Mercado/venda?acao=BuscarCliente'" value="Escolher Cliente!"><br/>
+    <P><input type="button" onclick="location='/Mercado/venda?acao=BuscarCliente'" value="Escolher Cliente!"><br/>
     </c:when>
     <c:otherwise>
-        <input type="button" onclick="location='/Mercado/venda?acao=BuscarCliente'" value="Alterar Cliente!"><br/>    
+      <P>  <input type="button" onclick="location='/Mercado/venda?acao=BuscarCliente'" value="Alterar Cliente!"><br/>    
     </c:otherwise>
 </c:choose>   
 
-<c:choose>
-	<c:when test="${venda.carinho.size() ne 0}">
-	    <input type="button" onclick="location='/Mercado/venda?acao=BuscarProduto'" value="Adicionar Produto ao carinho"><br/>
-	</c:when>
-	<c:otherwise>
-		<input type="button" onclick="location='/Mercado/venda?acao=BuscarProduto'" value="Adicionar Produto ao carinho"><br/>
-		<input type="button" onclick="location='/Mercado/venda?acao=BuscarCarinho'" value="Visualizar Carinho"><br/>
-	</c:otherwise>
-</c:choose>
 
-<c:if test="${venda.carinho.sizer()>0 and venda.cliente ne null }">
-			<input type="button" onclick="location='/Mercado/venda?acao=Vender'" value="Realizar Venda!"><br/>
+		<P><input type="button" onclick="location='/Mercado/venda?acao=ListarProduto'" value="Adicionar Produto ao carinho"><br/>
+		<P><input type="button" onclick="location='/Mercado/venda?acao=BuscarCarinho'" value="Visualizar Carinho"><br/>
+
+
+
 	
-</c:if>
+
 
 </center>
 

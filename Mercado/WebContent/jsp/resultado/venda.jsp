@@ -13,12 +13,9 @@
 	</c:if>
 	<center>
 		<p>
-			<c:out value="${msg}"></c:out>
+			<h1><c:out value="${msg}"></c:out></h1>
 			<br />
-		<P>
-			<input type="button"
-				onclick="location='/Mercado/venda?acao=BuscarCliente'"
-				value="Escolher outro cliente" />
+		
 		<p>
 			<input type="button"
 				onclick="location='/Mercado/jsp/venda/vendaMenu.jsp'"
