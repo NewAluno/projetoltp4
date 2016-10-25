@@ -23,15 +23,8 @@
       <P>  <input type="button" onclick="location='/Mercado/venda?acao=BuscarCliente'" value="Alterar Cliente!"><br/>    
     </c:otherwise>
 </c:choose>   
-
-
 		<P><input type="button" onclick="location='/Mercado/venda?acao=ListarProduto'" value="Adicionar Produto ao carinho"><br/>
 		<P><input type="button" onclick="location='/Mercado/venda?acao=BuscarCarinho'" value="Visualizar Carinho"><br/>
-
-
-
-	
-
 
 </center>
 

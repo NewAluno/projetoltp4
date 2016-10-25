@@ -45,7 +45,9 @@ public class ClienteServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao inserir um novo ususario!!\n" + e;
 
-				} finally {
+				
+				}finally {
+				
 
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);

@@ -2,6 +2,7 @@ package br.com.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -62,8 +63,12 @@ public class VendaServlet extends HttpServlet {
 				try {
 					cliente = clienteBO.consultarPorId(Integer.parseInt(req.getParameter("id")));
 					venda.setCliente(cliente);
-					req.getSession().setAttribute("venda", venda);
+					session.setAttribute("venda", venda);
 					msg = "Foi escolhido o cliente " + cliente.getNome() + " para esta venda!";
+					
+					venda = (Venda)session.getAttribute("venda");
+					cliente = venda.getCliente();
+					System.out.println(cliente.getNome()+ cliente.getEmail());
 				} catch (ClassNotFoundException e) {
 
 					e.printStackTrace();
@@ -108,7 +113,7 @@ public class VendaServlet extends HttpServlet {
 					venda = (Venda) session.getAttribute("venda");
 					venda.setProduto(produto);
 					session.setAttribute("venda", venda);
-					msg = "Produto"+produto.getNome()+" foi adicionado ao carinho com sucesso!";
+					msg = "Produto "+produto.getNome()+" foi adicionado ao carinho com sucesso!";
 					
 				} catch (NumberFormatException e) {
 					msg="Vish, numero em um formato errado.\n "+e;
@@ -122,11 +127,16 @@ public class VendaServlet extends HttpServlet {
 				  msg="erro ao adicionar o produto ao carinho.\n"+e;
 					e.printStackTrace();
 				}catch(Exception e){
+					e.printStackTrace();
 					msg = "temos um problemão.\n"+e;
 				}finally {
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
 				}
+			}else if(acao.equals("BuscarCarinho")){
+				
+				req.getRequestDispatcher("jsp/venda/carinho.jsp").forward(req, resp);
+				
 			}
 
 		} else {

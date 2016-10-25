@@ -1,10 +1,11 @@
 package br.com.entidade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Venda {
-	private List<Produto> carinho;
-	private Cliente cliente;
+	private List<Produto> carinho = new ArrayList<>();
+	private Cliente cliente = new Cliente();
 	
 	public List<Produto> getCarinho() {
 		return carinho;
@@ -23,6 +24,9 @@ public class Venda {
 	}
 	public void setProduto(Produto produto){
 		carinho.add(produto);
+		for (Produto pro : carinho) {
+			System.out.println(pro.getNome());
+		}
 	}
 
 }

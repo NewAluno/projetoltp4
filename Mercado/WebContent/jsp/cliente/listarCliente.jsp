@@ -43,7 +43,7 @@
 </c:when>	
 	<c:otherwise>
 	<h1> não exite nenhum cliente cadastrado!</h1>
-	<P><input type="button" onclick="location='/Mercado/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo produto"><br/>
+	<P><input type="button" onclick="location='/Mercado/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
 	</c:otherwise>
 </c:choose>	
  <input type="button" onclick="location='/Mercado/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
