@@ -10,7 +10,7 @@ public class Conexao {
 		try {
 			System.out.println(":)");
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/projeto?user=root&password=root");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/projeto?user=root&password=1234");
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();

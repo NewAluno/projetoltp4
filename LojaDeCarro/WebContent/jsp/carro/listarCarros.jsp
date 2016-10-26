@@ -16,7 +16,7 @@
 <center>
 <c:choose>
 <c:when test="${Lista.size()>0}">
-	<h1> Lista dos carros cadastrdos</h1>
+	<h1> Lista dos carros cadastrados</h1>
 	<table border="1">
 		<tr>
 			<td>Nome do produto</td>
