@@ -1,0 +1,28 @@
+
+CREATE DATABASE projeto;
+
+USE projeto;
+
+CREATE TABLE cliente
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(200) NOT NULL,
+    telefone VARCHAR(50) NOT NULL,
+    sexo CHAR(1) NOT NULL
+);
+CREATE TABLE venda
+(
+    carro_id INT(11) NOT NULL,
+    Cliente_id INT(11) NOT NULL,
+    CONSTRAINT `PRIMARY` PRIMARY KEY (carro_id, Cliente_id)
+);
+CREATE TABLE carro
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    preco DOUBLE NOT NULL,
+    fornecedor VARCHAR(200) NOT NULL
+);
+ALTER TABLE venda ADD FOREIGN KEY (carro_id) REFERENCES carro (id);
+ALTER TABLE venda ADD FOREIGN KEY (Cliente_id) REFERENCES cliente (id);
