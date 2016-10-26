@@ -21,13 +21,15 @@ public class LoginServlet extends HttpServlet {
 			String user = req.getParameter("user");
 			String senha = req.getParameter("senha");
 
-			Boolean logado = LoginBO.verificaLogin(user, senha);
-
-			if (logado) {
+			
+			if (LoginBO.verificaLogin(user, senha)) {
+				
 				req.getSession().setAttribute("user", user);
 				req.getSession().setAttribute("senha", senha);
 				req.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(req, resp);
+				
 			} else {
+				
 				System.out.println("Não entrou na festa!");
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
