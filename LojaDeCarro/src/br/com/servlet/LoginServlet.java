@@ -28,9 +28,11 @@ public class LoginServlet extends HttpServlet {
 				req.getSession().setAttribute("senha", senha);
 				req.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(req, resp);
 			} else {
-				System.out.println("Não entrou na festa!");
+				System.out.println("NÃ£o entrou na festa!");
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
+		}else {
+				resp.sendRedirect("../LojaDeCarro/index.jsp");
 		}
 
 	}
