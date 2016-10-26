@@ -7,11 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu principal do sistema</title>
 </head>
-<body>
+<body >
 	<c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../Mercado/index.jsp"/>
+    	<c:redirect url="../../LojaDeCarro/index.jsp"/>
     </c:if>
 <center>
+<table  bgcolor="#FFFAFA">
+<tr>
 	<h2>Carro</h2>
 	<a href="../../../LojaDeCarro/jsp/carro/cadastro.jsp">Cadastro de carro</a><br/>
 	<a href="/LojaDeCarro/carro?acao=Listar"> Lista dos carros</a>
@@ -22,7 +24,8 @@
 	
 	<h2>Venda</h2>
 	<a href="/LojaDeCarro/jsp/venda/vendaMenu.jsp">Realizer uma venda</a>
-
+	</tr>
+</table>
 </center>
 
 </body>

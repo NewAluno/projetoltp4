@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>login do ususario</title>
+<title>login do usuario</title>
 </head>
 <body background="../LojaDeCarro/imagens/img.jpg">
 <center>
