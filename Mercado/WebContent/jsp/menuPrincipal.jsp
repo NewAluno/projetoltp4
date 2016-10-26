@@ -13,8 +13,8 @@
     </c:if>
 <center>
 	<h2>Produto</h2>
-	<a href="../../../Mercado/jsp/produto/cadastro.jsp">Cadastro de produto</a><br/>
-	<a href="/Mercado/produto?acao=Listar"> Lista dos produtos</a>
+	<a href="../../../Mercado/jsp/carro/cadastro.jsp">Cadastro de produto</a><br/>
+	<a href="/Mercado/carro?acao=Listar"> Lista dos produtos</a>
 	
 	<h2>Cliente</h2>
 	<a	href="../Mercado/jsp/cliente/cadastroCliente.jsp">Cadastro de cliente</a><br/>

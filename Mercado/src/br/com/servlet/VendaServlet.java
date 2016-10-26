@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.BO.ClienteBO;
-import br.com.BO.ProdutoBO;
+import br.com.BO.CarroBO;
 import br.com.entidade.Cliente;
-import br.com.entidade.Produto;
+import br.com.entidade.Carro;
 import br.com.entidade.Venda;
 
 public class VendaServlet extends HttpServlet {
@@ -25,9 +25,9 @@ public class VendaServlet extends HttpServlet {
 		acao = req.getParameter("acao");
 		Venda venda = new Venda();
 		Cliente cliente = new Cliente();
-		Produto produto = new Produto();
+		Carro carro = new Carro();
 		ClienteBO clienteBO = new ClienteBO();
-		ProdutoBO produtoBO = new ProdutoBO();
+		CarroBO carroBO = new CarroBO();
 		String msg = null;
 
 		HttpSession session = req.getSession();
@@ -88,7 +88,7 @@ public class VendaServlet extends HttpServlet {
 			} else if (acao.equals("ListarProduto")) {
 				try {
 
-					List<Produto> Lista = produtoBO.listarTodos();
+					List<Carro> Lista = carroBO.listarTodos();
 					req.setAttribute("Lista", Lista);
 					req.getRequestDispatcher("jsp/venda/listaProdutos.jsp").forward(req, resp);
 
@@ -109,11 +109,11 @@ public class VendaServlet extends HttpServlet {
 				}
 			}else if(acao.equals("EscolherProduto")){
 				try {
-					produto = produtoBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
+					carro = carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
 					venda = (Venda) session.getAttribute("venda");
-					venda.setProduto(produto);
+					venda.setProduto(carro);
 					session.setAttribute("venda", venda);
-					msg = "Produto "+produto.getNome()+" foi adicionado ao carinho com sucesso!";
+					msg = "Produto "+carro.getNome()+" foi adicionado ao carinho com sucesso!";
 					
 				} catch (NumberFormatException e) {
 					msg="Vish, numero em um formato errado.\n "+e;

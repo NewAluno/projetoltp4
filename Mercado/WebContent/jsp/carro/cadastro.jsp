@@ -13,9 +13,9 @@
     	<c:redirect url="../../../Mercado/index.jsp"/>
     </c:if>
 	<center>
-	<h1>cadastro de produto!!</h1>
+	<h1>cadastro do carro!!</h1>
 	
-	<form action="/Mercado/produto" method="post">
+	<form action="/Mercado/carro" method="post">
 		<input type="hidden" name="acao" value="inserir" />
 		Nome: <input type="text" name="nome"></br>
 		Preço: <input type="text" name="preco"></br>
@@ -23,7 +23,7 @@
 		<input type="submit" value="cadastrar">
 
 	</form>	
-	<c:import url="../comum/opcaoBotoesProduto.jsp" />
+	<c:import url="../comum/opcaoBotoesCarro.jsp" />
 	</center>
 </body>
 </html>

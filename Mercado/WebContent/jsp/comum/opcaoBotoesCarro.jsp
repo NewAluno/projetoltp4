@@ -7,5 +7,5 @@
     	<c:redirect url="../../../Mercado/index.jsp"/>
     </c:if>
     <input type="button" onclick="location='../../../Mercado/jsp/menuPrincipal.jsp'" value="Menu principal"><br/>
-  <input type="button" onclick="location='../../../../Mercado/produto?acao=Listar'" value="Lista dos produtos"><br/>
+  <input type="button" onclick="location='../../../../Mercado/carro?acao=Listar'" value="Lista dos carros"><br/>
  

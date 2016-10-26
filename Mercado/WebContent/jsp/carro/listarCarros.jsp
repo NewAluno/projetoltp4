@@ -1,5 +1,5 @@
 
-<%@page import="br.com.entidade.Produto"%>
+<%@page import="br.com.entidade.Carro"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,8 +32,8 @@
 		<td>${l.nome}</td>
 		<td>${l.preco}</td>
 		<td>${l.fornecedor}</td>
-		<td><a href="/Mercado/produto?acao=ConsultarProduto&id=${l.id}"/>Alterar</td>
-		<td><a href="/Mercado/produto?acao=Excluir&id=${l.id}"/>Excluir</td>
+		<td><a href="/Mercado/carro?acao=ConsultarProduto&id=${l.id}"/>Alterar</td>
+		<td><a href="/Mercado/carro?acao=Excluir&id=${l.id}"/>Excluir</td>
 	</tr>
 	
 	</c:forEach>
@@ -43,7 +43,7 @@
 
 <c:otherwise>
 	<h1>Nenhum produto cadastrado no sistema!</h1>
-	<input type="button" onclick="location='/Mercado/jsp/produto/cadastro.jsp'" value="Cadastar novo produto"><br/>
+	<input type="button" onclick="location='/Mercado/jsp/carro/cadastro.jsp'" value="Cadastar novo produto"><br/>
 </c:otherwise>
 </c:choose>
 	<input type="button" onclick="location='/Mercado/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>

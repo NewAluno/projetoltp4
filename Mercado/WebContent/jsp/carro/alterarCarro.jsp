@@ -13,14 +13,14 @@
    <c:if test="${user==null && senha==null}">
     	<c:redirect url="../../../Mercado/index.jsp"/>
     </c:if>
-<c:set var="p" value="${produto}" />
-<form action="/Mercado/produto" method="post">
+<c:set var="car" value="${carro}" />
+<form action="/Mercado/carro" method="post">
 
 		<input type="hidden" name="acao" value="Alterar" />
-		<input type="hidden" name="id" value="${p.id}">
-		Nome: <input type="text" name="nome" value="${p.nome}"></br>
-		Preço: <input type="text" name="preco" value="${p.preco}"></br>
-		Fornecedor: <input type="text" name="fornecedor" value="${p.fornecedor}"></br>
+		<input type="hidden" name="id" value="${car.id}">
+		Nome: <input type="text" name="nome" value="${car.nome}"></br>
+		Preço: <input type="text" name="preco" value="${car.preco}"></br>
+		Fornecedor: <input type="text" name="fornecedor" value="${car.fornecedor}"></br>
 		<input type="submit" value="Alterar">
 
 	</form>

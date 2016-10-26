@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Venda {
-	private List<Produto> carinho = new ArrayList<>();
+	private List<Carro> carinho = new ArrayList<>();
 	private Cliente cliente = new Cliente();
 	
-	public List<Produto> getCarinho() {
+	public List<Carro> getCarinho() {
 		return carinho;
 	}
 
-	public void setCarinho(List<Produto> carinho) {
+	public void setCarinho(List<Carro> carinho) {
 		this.carinho = carinho;
 	}
 
@@ -22,9 +22,9 @@ public class Venda {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public void setProduto(Produto produto){
+	public void setProduto(Carro produto){
 		carinho.add(produto);
-		for (Produto pro : carinho) {
+		for (Carro pro : carinho) {
 			System.out.println(pro.getNome());
 		}
 	}

@@ -1,6 +1,6 @@
 package br.com.entidade;
 
-public class Produto {
+public class Carro {
 	private int Id;
 	private String Nome;
 	private double preco;

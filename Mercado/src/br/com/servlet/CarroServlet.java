@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.BO.ProdutoBO;
-import br.com.entidade.Produto;
+import br.com.BO.CarroBO;
+import br.com.entidade.Carro;
 
-public class ProdutoServlet extends HttpServlet {
+public class CarroServlet extends HttpServlet {
 
 	private String acao;
 
@@ -22,24 +22,24 @@ public class ProdutoServlet extends HttpServlet {
 		
 		acao = req.getParameter("acao");
 		String msg = null;
-		Produto produto = new Produto();
-		ProdutoBO produtoBO = new ProdutoBO();
+		Carro carro = new Carro();
+		CarroBO carroBO = new CarroBO();
 
 		HttpSession session = req.getSession();
 		if ((session.getAttribute("user") != null && session.getAttribute("senha") != null)) {
 			if (acao.equals("inserir")) {
 				try {
-					produto.setNome(req.getParameter("nome"));
-					produto.setPreco(Double.parseDouble(req.getParameter("preco")));
-					produto.setFornecedor(req.getParameter("fornecedor"));
+					carro.setNome(req.getParameter("nome"));
+					carro.setPreco(Double.parseDouble(req.getParameter("preco")));
+					carro.setFornecedor(req.getParameter("fornecedor"));
 
-					boolean verificacao = produtoBO.cadastro(produto);
+					boolean verificacao = carroBO.cadastro(carro);
 
 					if (verificacao) {
-						msg = "O novo produto " + produto.getNome() + " foi cadastrado.";
+						msg = "O novo carro " + carro.getNome() + " foi cadastrado.";
 
 					} else {
-						msg = "O novo produto " + produto.getNome() + " não foi cadastrado.";
+						msg = "O novo carro " + carro.getNome() + " não foi cadastrado.";
 
 					}
 
@@ -51,67 +51,67 @@ public class ProdutoServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao cadastrar um novo produto\n" + e;
+					msg = "Erro ao cadastrar um novo carro\n" + e;
 
 				} finally {
 
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/produto.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 				}
 
 			} else if (acao.equals("Listar")) {
 				try {
 
-					List<Produto> Lista = ProdutoBO.listarTodos();
+					List<Carro> Lista = CarroBO.listarTodos();
 					req.setAttribute("Lista", Lista);
-					req.getRequestDispatcher("jsp/produto/listaProdutos.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/carro/listarCarros.jsp").forward(req, resp);
 
 				} catch (ClassNotFoundException e) {
 
 					e.printStackTrace();
 					msg = "Chame o suporte e peça para que Verifique o driver de coneção com o Mysql!\n" + e;
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/produto.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao listar os produtos cadastrados.\n" + e;
+					msg = "Erro ao listar os carros cadastrados.\n" + e;
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/produto.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 
 				}
 
-			} else if (acao.equals("ConsultarProduto")) {
+			} else if (acao.equals("ConsultarCarro")) {
 				try {
-					produto = 	produtoBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
-					req.setAttribute("produto", produto);
-					req.getRequestDispatcher("jsp/produto/alterarProduto.jsp").forward(req, resp);
+					carro = 	carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
+					req.setAttribute("carro", carro);
+					req.getRequestDispatcher("jsp/carro/alterarCarro.jsp").forward(req, resp);
 
 				} catch (ClassNotFoundException e) {
 
 					e.printStackTrace();
 					msg = "Chame o suporte e peça para que Verifique o driver de coneção com o Mysql!\n" + e;
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/produto.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao culsutar o produto que iria se alterado!\n" + e;
+					msg = "Erro ao culsutar o carro que iria se alterado!\n" + e;
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 
 				}
 			} else if (acao.equals("Alterar")) {
 				try {
 
-					produto.setId((Integer.parseInt(req.getParameter("id"))));
-					produto.setNome(req.getParameter("nome"));
-					produto.setPreco(Double.parseDouble(req.getParameter("preco")));
-					produto.setFornecedor(req.getParameter("fornecedor"));
-					produtoBO.alterarProduto(produto);
-					msg = "O novo produto " + produto.getNome() + " foi alterado com suscesso!!!.";
+					carro.setId((Integer.parseInt(req.getParameter("id"))));
+					carro.setNome(req.getParameter("nome"));
+					carro.setPreco(Double.parseDouble(req.getParameter("preco")));
+					carro.setFornecedor(req.getParameter("fornecedor"));
+					carroBO.alterarCarro(carro);
+					msg = "O novo carro " + carro.getNome() + " foi alterado com suscesso!!!.";
 
 				} catch (ClassNotFoundException e) {
 
@@ -121,20 +121,20 @@ public class ProdutoServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao alterar o produto!\n" + e;
+					msg = "Erro ao alterar o carro!\n" + e;
 
 				} finally {
 
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/produto.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 				}
 
 			} else if (acao.equals("Excluir")) {
 				try {
 
-					produto = produtoBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
-					produtoBO.excluirProduto(produto);
-					msg = "O  produto " + produto.getNome() + " foi excluido com suscesso!!!.";
+					carro = carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
+					carroBO.excluirCarro(carro);
+					msg = "O  carro " + carro.getNome() + " foi excluido com suscesso!!!.";
 
 				} catch (ClassNotFoundException e) {
 
@@ -144,12 +144,12 @@ public class ProdutoServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao excluir o produto!\n" + e;
+					msg = "Erro ao excluir o carro!\n" + e;
 
 				} finally {
 
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/produto.jsp").forward(req, resp);
+					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 				}
 			}else{
 				System.out.println("Erro na Acao...");

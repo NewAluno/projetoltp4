@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.com.DAO.ClienteDAO;
-import br.com.DAO.ProdutoDAO;
+import br.com.DAO.CarroDAO;
 import br.com.entidade.Cliente;
-import br.com.entidade.Produto;
+import br.com.entidade.Carro;
 
 public class ClienteBO {
 	 private static ClienteDAO dao = new ClienteDAO();

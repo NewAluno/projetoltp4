@@ -9,7 +9,7 @@ import java.util.List;
 
 import br.com.banco.Conexao;
 import br.com.entidade.Cliente;
-import br.com.entidade.Produto;
+import br.com.entidade.Carro;
 
 public class ClienteDAO {
 
