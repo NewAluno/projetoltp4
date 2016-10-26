@@ -8,11 +8,9 @@
 <title>Lista de CLiente</title>
 </head>
 <body>
-<% 
-		if(session.getAttribute("user") == null && session.getAttribute("senha") == null){
-			response.sendRedirect("../../../Mercado/index.jsp");
-    	}
-    %>
+<c:if test="${user==null && senha==null}">
+    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
+    </c:if>
 <center>
 <c:choose>
 <c:when test="${clientes.size()>0}">
@@ -33,8 +31,8 @@
 			<td>${c.email}</td>
 			<td>${c.telefone}</td>
 			<td>${c.sexo}</td>
-			<td><a href="/Mercado/cliente?acao=Consultar&id=${c.id}"/>Alterar</td>
-			<td><a href="/Mercado/cliente?acao=Excluir&id=${c.id}"/>Excluir</td>
+			<td><a href="/LojaDeCarro/cliente?acao=Consultar&id=${c.id}"/>Alterar</td>
+			<td><a href="/LojaDeCarro/cliente?acao=Excluir&id=${c.id}"/>Excluir</td>
 			</tr>
 			</c:forEach>
 		</table>
@@ -43,10 +41,10 @@
 </c:when>	
 	<c:otherwise>
 	<h1> não exite nenhum cliente cadastrado!</h1>
-	<P><input type="button" onclick="location='/Mercado/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
+	<P><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
 	</c:otherwise>
 </c:choose>	
- <input type="button" onclick="location='/Mercado/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
+<p> <input type="button" onclick="location='/LojaDeCarro/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
  </center>
 </body>
 </html>

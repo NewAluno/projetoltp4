@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../Mercado/index.jsp"/>
+    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
     </c:if>
 <c:out value="${msg}"/><br/>
 <P><c:import url="../comum/opcaoBotoesCliente.jsp" />

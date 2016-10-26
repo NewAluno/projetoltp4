@@ -11,10 +11,10 @@
 
     
    <c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../Mercado/index.jsp"/>
+    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
     </c:if>
 <c:set var="car" value="${carro}" />
-<form action="/Mercado/carro" method="post">
+<form action="/LojaDeCarro/carro" method="post">
 
 		<input type="hidden" name="acao" value="Alterar" />
 		<input type="hidden" name="id" value="${car.id}">
@@ -25,6 +25,6 @@
 
 	</form>
 
-	<c:import url="../comum/opcaoBotoesProduto.jsp" />
+	<c:import url="../comum/opcaoBotoesCarro.jsp" />
 </body>
 </html>

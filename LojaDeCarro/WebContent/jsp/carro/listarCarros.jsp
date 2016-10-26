@@ -11,12 +11,12 @@
 </head>
 <body>
 <c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../Mercado/index.jsp"/>
+    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
     </c:if>
 <center>
 <c:choose>
 <c:when test="${Lista.size()>0}">
-	<marquee><h1> Lista de todos os produtos cadastrdos</h1></marquee>
+	<h1> Lista dos carros cadastrdos</h1>
 	<table border="1">
 		<tr>
 			<td>Nome do produto</td>
@@ -32,8 +32,8 @@
 		<td>${l.nome}</td>
 		<td>${l.preco}</td>
 		<td>${l.fornecedor}</td>
-		<td><a href="/Mercado/carro?acao=ConsultarProduto&id=${l.id}"/>Alterar</td>
-		<td><a href="/Mercado/carro?acao=Excluir&id=${l.id}"/>Excluir</td>
+		<td><a href="/LojaDeCarro/carro?acao=ConsultarProduto&id=${l.id}"/>Alterar</td>
+		<td><a href="/LojaDeCarro/carro?acao=Excluir&id=${l.id}"/>Excluir</td>
 	</tr>
 	
 	</c:forEach>
@@ -43,10 +43,10 @@
 
 <c:otherwise>
 	<h1>Nenhum produto cadastrado no sistema!</h1>
-	<input type="button" onclick="location='/Mercado/jsp/carro/cadastro.jsp'" value="Cadastar novo produto"><br/>
+	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastro.jsp'" value="Cadastar novo produto"><br/>
 </c:otherwise>
 </c:choose>
-	<input type="button" onclick="location='/Mercado/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
+	<p><input type="button" onclick="location='/LojaDeCarro/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
 </center>
 </body>
 </html>

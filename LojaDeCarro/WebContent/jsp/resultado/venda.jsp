@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:if test="${user==null && senha==null}">
-		<c:redirect url="../../../Mercado/index.jsp" />
+		<c:redirect url="../../../LojaDeCarro/index.jsp" />
 	</c:if>
 	<center>
 		<p>
@@ -18,7 +18,7 @@
 		
 		<p>
 			<input type="button"
-				onclick="location='/Mercado/jsp/venda/vendaMenu.jsp'"
+				onclick="location='/LojaDeCarro/jsp/venda/vendaMenu.jsp'"
 				value="Menu venda">
 	</center>
 </body>

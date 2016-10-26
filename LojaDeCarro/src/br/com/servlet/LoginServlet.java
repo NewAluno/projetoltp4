@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 				req.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(req, resp);
 			} else {
 				System.out.println("Não entrou na festa!");
-				resp.sendRedirect("../Mercado/index.jsp");
+				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
 		}
 

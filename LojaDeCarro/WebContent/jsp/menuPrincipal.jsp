@@ -12,16 +12,16 @@
     	<c:redirect url="../../Mercado/index.jsp"/>
     </c:if>
 <center>
-	<h2>Produto</h2>
-	<a href="../../../Mercado/jsp/carro/cadastro.jsp">Cadastro de produto</a><br/>
-	<a href="/Mercado/carro?acao=Listar"> Lista dos produtos</a>
+	<h2>Carro</h2>
+	<a href="../../../LojaDeCarro/jsp/carro/cadastro.jsp">Cadastro de carro</a><br/>
+	<a href="/LojaDeCarro/carro?acao=Listar"> Lista dos carros</a>
 	
 	<h2>Cliente</h2>
-	<a	href="../Mercado/jsp/cliente/cadastroCliente.jsp">Cadastro de cliente</a><br/>
-	<a href="/Mercado/cliente?acao=Listar">Lista de clientes</a>
+	<a	href="../LojaDeCarro/jsp/cliente/cadastroCliente.jsp">Cadastro de cliente</a><br/>
+	<a href="/LojaDeCarro/cliente?acao=Listar">Lista de clientes</a>
 	
 	<h2>Venda</h2>
-	<a href="/Mercado/jsp/venda/vendaMenu.jsp">Realizer uma venda</a>
+	<a href="/LojaDeCarro/jsp/venda/vendaMenu.jsp">Realizer uma venda</a>
 
 </center>
 

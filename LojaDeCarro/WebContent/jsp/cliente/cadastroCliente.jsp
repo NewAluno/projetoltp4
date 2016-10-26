@@ -8,13 +8,11 @@
 <title>Cadastro de produto</title>
 </head>
 <body>
-	<% 
-		if(request.getSession().getAttribute("user") == null && request.getSession().getAttribute("senha") == null){
-			response.sendRedirect("../../../Mercado/index.jsp");
-    	}
-    %>
+	<c:if test="${user==null && senha==null}">
+    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
+    </c:if>
 <center>
-<form action="/Mercado/cliente" method="post">
+<form action="/LojaDeCarro/cliente" method="post">
 	<input type="hidden" name="acao" value="inserir" />
 	<label>Nome: </label> <input type="text"  name="nome" /><br/>	
 	<label>Email: </label><input  type="text"  name="email" /><br/>

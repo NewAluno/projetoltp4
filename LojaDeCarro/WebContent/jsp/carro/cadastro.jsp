@@ -10,12 +10,12 @@
 <body>
 
 	<c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../Mercado/index.jsp"/>
+    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
     </c:if>
 	<center>
 	<h1>cadastro do carro!!</h1>
 	
-	<form action="/Mercado/carro" method="post">
+	<form action="/LojaDeCarro/carro" method="post">
 		<input type="hidden" name="acao" value="inserir" />
 		Nome: <input type="text" name="nome"></br>
 		Preço: <input type="text" name="preco"></br>

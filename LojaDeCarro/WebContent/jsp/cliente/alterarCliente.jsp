@@ -8,14 +8,12 @@
 <title>Alterar produto!!!</title>
 </head>
 <body>
-<% 
-		if(session.getAttribute("user") == null && session.getAttribute("senha") == null){
-			response.sendRedirect("../../../Mercado/index.jsp");
-    	}
-    %>
+<c:if test="${user==null && senha==null}">
+    	<c:redirect url="../../../Mercado/index.jsp"/>
+    </c:if>
 <center>
 <c:set var="cli" value="${cliente}"/>
-<form action="/Mercado/cliente" method="post">
+<form action="/LojaDeCarro/cliente" method="post">
 	<input type="hidden" name="acao" value="Alterar" />
 	<input type="hidden" name="id" value="${cli.id}"/>
 	<label>Nome: </label> <input type="text"  name="nome" value="${cli.nome}" /><br/>	

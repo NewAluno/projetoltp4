@@ -6,18 +6,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>login do ususario</title>
 </head>
-<body>
+<body background="../LojaDeCarro/imagens/img.jpg">
 <center>
-<!-- mundaças no repoitorio... -->
+
+<form action="../LojaDeCarro/login" method="post" >
+<font color="#FFFAFA"> 
 <h1>Bem vindo!!!</h1>
-<form action="../Mercado/login" method="post">
 	<input type="hidden" name="acao" value="Logar"/>
-	<td> Usuario <input type="text" name="user" /></td><br><br>
-	<td> Senha <input type="password" name="senha" /></td>
-	<br><br>
-	<input type="submit" value="Login" />
+	<p><td> Usuario: <input type="text" name="user" /></td>
+	<p><td> Senha: <input type="password" name="senha" /></td>
+	<p><input type="submit" value="Login" />
 	<h1>........</h1>
+	<p><a>"Vivemos todos sob o mesmo céu, mas nem todos temos o mesmo horizonte." - Konrad Adenauer</a>
 	</div>	
+</font>	
 	</form>
 </center>
 </body>
