@@ -70,7 +70,7 @@ public class ClienteServlet extends HttpServlet {
 
 				} catch (SQLException e) {
 					
-					msg = "	Erro ao listar os produtos disponíveis!\n" + e;
+					msg = "	Erro ao listar os clientes disponíveis!\n" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);

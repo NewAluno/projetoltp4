@@ -152,7 +152,9 @@ public class CarroServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 				}
 			}else{
-				System.out.println("Erro na Acao...");
+				msg ="Erro na Acao...";
+				req.setAttribute("msg", msg);
+				req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 			}
 
 		} else {

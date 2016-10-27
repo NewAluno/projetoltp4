@@ -23,7 +23,7 @@
 	<a href="/LojaDeCarro/cliente?acao=Listar">Lista de clientes</a>
 	
 	<h2>Venda</h2>
-	<a href="/LojaDeCarro/jsp/venda/vendaMenu.jsp">Realizer uma venda</a>
+	<a href="/LojaDeCarro/venda?acao=ListarClientes">Realizer uma venda</a>
 	</tr>
 </table>
 </center>

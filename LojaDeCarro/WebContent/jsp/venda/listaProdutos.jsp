@@ -32,7 +32,7 @@
 		<td>${l.nome}</td>
 		<td>${l.preco}</td>
 		<td>${l.fornecedor}</td>
-		<td><a href="/Mercado/venda?acao=EscolherProduto&id=${l.id}"/>escolher este!</td>
+		<td><a href="/LojaDeCarro/venda?acao=EscolherProduto&id=${l.id}"/>escolher este!</td>
 		
 	</tr>
 	
@@ -43,10 +43,10 @@
 
 <c:otherwise>
 	<h1>Nenhum produto cadastrado no sistema!</h1>
-	<input type="button" onclick="location='/Mercado/jsp/produto/cadastro.jsp'" value="Cadastar novo produto"><br/>
+	<input type="button" onclick="location='/LojaDeCarro/jsp/produto/cadastro.jsp'" value="Cadastar novo produto"><br/>
 </c:otherwise>
 </c:choose>
-	<P><input type="button" onclick="location='/Mercado/jsp/venda/vendaMenu.jsp'" value="Voltar ao menu venda"><br/>
+	<P><input type="button" onclick="location='/LojaDeCarro/jsp/venda/vendaMenu.jsp'" value="Voltar ao menu venda"><br/>
 </center>
 </body>
 </html>

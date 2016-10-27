@@ -14,7 +14,7 @@
 	<c:choose>
 		<c:when test="${clientes.size()>0}">
 			<center>
-				<table border="1">
+				<table border="1" >
 					<tr>
 						<td>Nome</td>
 						<td>E-mail</td>
@@ -29,7 +29,7 @@
 							<td>${c.email}</td>
 							<td>${c.telefone}</td>
 							<td>${c.sexo}</td>
-							<td><a href="/Mercado/venda?acao=EscolherCliente&id=${c.id}" />escolher este!</td>
+							<td><a href="/LojaDeCarro/venda?acao=EscolherCliente&id=${c.id}" />escolher este!</td>
 						</tr>
 
 					</c:forEach>
@@ -38,8 +38,8 @@
 
 			</c:when>
 			<c:otherwise>
-				<h1> não exite nenhum cliente cadastrado!</h1>
-				<P><input type="button" onclick="location='/Mercado/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo produto"><br/>
+				<h1> Não exite nenhum cliente cadastrado!</h1>
+				<P><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
 			</c:otherwise>
 	</c:choose>
 </body>
