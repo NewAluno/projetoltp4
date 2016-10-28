@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.BO.CarroBO;
 import br.com.BO.ClienteBO;
+import br.com.entidade.Carro;
 import br.com.entidade.Cliente;
 
 public class VendaServlet extends HttpServlet {
@@ -22,18 +24,23 @@ public class VendaServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		String msg = null;
 		ClienteBO clienteBO = new ClienteBO();
-		Cliente cliente = new Cliente();
+		CarroBO carroBO = new CarroBO();
 
 		if ((session.getAttribute("user") != null && session.getAttribute("senha") != null)) {
 			
-			if(acao.equals("ListarClientes")){
+			if(acao.equals("Vender")){
 
 				try {
 
 					List<Cliente> clientes;
 					clientes = clienteBO.listarTodos();
 					req.setAttribute("clientes", clientes);
-					req.getRequestDispatcher("jsp/venda/listaClientes.jsp").forward(req, resp);
+					
+					List<Carro> carros;
+					carros = carroBO.listarTodos();
+					req.setAttribute("carros", carros);
+					
+					req.getRequestDispatcher("jsp/venda/RealizarVenda.jsp").forward(req, resp);
 
 				} catch (ClassNotFoundException e) {
 
@@ -50,32 +57,6 @@ public class VendaServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
 				}
 				
-			}else if(acao.equals("EscolherCliente")){
-				
-				try {
-
-					cliente = clienteBO.consultarPorId(Integer.parseInt(req.getParameter("id")));
-					session.setAttribute("ClienteVenda", cliente);
-					req.getRequestDispatcher("../LojaDeCarro/venda?acao=ListarCarro").forward(req, resp);
-
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-					msg = "Chame o suporte e peça para que Verifique o driver de coneção com o Mysql!" + e;
-
-				} catch (SQLException e) {
-					e.printStackTrace();
-					msg = "Erro ao escolher o cliente para realizar a venda." + e;
-
-				} finally {
-
-					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
-				}
-				
-			}else{
-				msg ="Erro na Acao...";
-				req.setAttribute("msg", msg);
-				req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
 			}
 		} else {
 

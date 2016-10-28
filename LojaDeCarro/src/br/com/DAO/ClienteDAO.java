@@ -39,11 +39,11 @@ public class ClienteDAO {
 	public static List<Cliente> listarTodos() throws ClassNotFoundException, SQLException {
 		Connection con = Conexao.getConexao();
 		Cliente cliente = null;
-		String sql = "SELECT id, nome, email, telefone, sexo FROM cliente ";
+		
 
 		List<Cliente> lista = new ArrayList<Cliente>();
 		try {
-			PreparedStatement query = con.prepareStatement(sql);
+			PreparedStatement query = con.prepareStatement("SELECT id, nome, email, telefone, sexo FROM cliente ");
 			ResultSet result = query.executeQuery();
 
 			while (result.next()) {

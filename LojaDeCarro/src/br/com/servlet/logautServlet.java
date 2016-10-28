@@ -22,11 +22,12 @@ public class logautServlet extends HttpServlet{
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 				
 			}else{
+				System.out.println("acao incorreta!!!");
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
 			
 		} else {
-			
+			System.out.println("-Erroou!!!");
 			resp.sendRedirect("../LojaDeCarro/index.jsp");
 			
 		}
