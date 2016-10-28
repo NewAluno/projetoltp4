@@ -11,8 +11,9 @@
 	<c:if test="${user==null && senha==null}">
     	<c:redirect url="../../LojaDeCarro/index.jsp"/>
     </c:if>
+
 <center>
-<table  bgcolor="#FFFAFA">
+
 <tr>
 	<h2>Carro</h2>
 	<a href="../../../LojaDeCarro/jsp/carro/cadastro.jsp">Cadastro de carro</a><br/>
@@ -25,8 +26,10 @@
 	<h2>Venda</h2>
 	<a href="/LojaDeCarro/venda?acao=ListarClientes">Realizer uma venda</a>
 	</tr>
-</table>
+	
+	<p><input type="button" onclick="location='../../../../LojaDeCarro/logaut?acao=Sair'" value="sair"><br/>
 </center>
+
 
 </body>
 </html>
